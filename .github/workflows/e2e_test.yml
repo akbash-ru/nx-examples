@@ -19,6 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build --prod
-    - run: npm run e2e my-app --headed
+    - run: npm run e2e products-e2e --headed
       env:
         CI: true
