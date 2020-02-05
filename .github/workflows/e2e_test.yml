@@ -7,15 +7,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: '10.x'
-
     steps:
     - uses: akbash-ru/checkout@v2
-    - uses: akbash-ru/setup-node@v1
+    - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+    #- uses: akbash-ru/setup-node@v1
+    #  with:
+    #   node-version: '10.x'
     - run: npm install
     - run: npm run test products
     - run: npm run e2e products-e2e --headed
