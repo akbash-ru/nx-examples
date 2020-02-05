@@ -9,16 +9,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: '10.x'
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: akbash-ru/checkout@v2
+    - uses: akbash-ru/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '10.x'
     - run: npm install
-    - run: npm run build --prod
+    - run: npm run test products
     - run: npm run e2e products-e2e --headed
       env:
         CI: true
